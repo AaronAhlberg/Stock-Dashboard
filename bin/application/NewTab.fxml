@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewTabController">
+   <children>
+      <TabPane layoutX="10.0" layoutY="10.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text="Technical">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <VBox>
+                                 <children>
+                                    <GridPane>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="400.0" prefHeight="400.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="400.0" prefHeight="400.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <TitledPane alignment="CENTER" animated="false" collapsible="false" contentDisplay="CENTER" text="Stock Price">
+                                             <content>
+                                                <AnchorPane style="-fx-background-color: black;">
+                                                   <children>
+                                                      <VBox alignment="CENTER" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <LineChart fx:id="stockGraph" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendVisible="false" verticalGridLinesVisible="false">
+                                                               <xAxis>
+                                                                  <CategoryAxis side="BOTTOM" tickLabelRotation="90.0" fx:id="xAxisStockGraph" />
+                                                               </xAxis>
+                                                               <yAxis>
+                                                                  <NumberAxis fx:id="yAxisStockGraph" animated="false" autoRanging="false" minorTickCount="10" minorTickVisible="false" side="LEFT" tickLabelFill="WHITE" tickLabelGap="5.0" tickLength="0.0" tickMarkVisible="false" tickUnit="10.0">
+                                                                     <tickLabelFont>
+                                                                        <Font size="10.0" />
+                                                                     </tickLabelFont>
+                                                                  </NumberAxis>
+                                                               </yAxis>
+                                                            </LineChart>
+                                                            <ToolBar prefHeight="40.0" prefWidth="200.0">
+                                                               <items>
+                                                                  <Button mnemonicParsing="false" onAction="#set5y" text="5y" />
+                                                                  <Button mnemonicParsing="false" onAction="#set2y" text="2y" />
+                                                                  <Button mnemonicParsing="false" onAction="#set1y" text="1y" />
+                                                                  <Button mnemonicParsing="false" onAction="#set6m" text="6m" />
+                                                                  <Button mnemonicParsing="false" onAction="#set3m" text="3m" />
+                                                                  <Button mnemonicParsing="false" onAction="#set1m" text="1m" />
+                                                                  <Button mnemonicParsing="false" onAction="#set1d" text="1d" />
+                                                               </items>
+                                                            </ToolBar>
+                                                         </children>
+                                                      </VBox>
+                                                      <Text fx:id="timeText" fill="#f5f3f3" strokeType="OUTSIDE" strokeWidth="0.0" text="AAPL: 1 Year" textAlignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <font>
+                                                            <Font size="18.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane alignment="CENTER" animated="false" collapsible="false" contentDisplay="CENTER" minHeight="400.0" text="Company" GridPane.columnIndex="1">
+                                             <content>
+                                                <AnchorPane>
+                                                   <children>
+                                                      <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <content>
+                                                            <AnchorPane>
+                                                               <children>
+                                                                  <ListView fx:id="listView" layoutX="21.0" layoutY="74.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                         </content>
+                                                      </ScrollPane>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane alignment="CENTER" animated="false" collapsible="false" contentDisplay="CENTER" minHeight="400.0" text="Financials" textAlignment="CENTER" GridPane.rowIndex="1">
+                                             <content>
+                                                <AnchorPane>
+                                                   <children>
+                                                      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <children>
+                                                            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="ALWAYS" vbarPolicy="ALWAYS">
+                                                               <content>
+                                                                  <AnchorPane>
+                                                                     <children>
+                                                                        <GridPane fx:id="financialGridPane" gridLinesVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                           <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" />
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" />
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" />
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" />
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" />
+                                                                           </columnConstraints>
+                                                                           <rowConstraints>
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+                                                                           </rowConstraints>
+                                                                           <children>
+                                                                              <Label text="Label">
+                                                                                 <font>
+                                                                                    <Font size="25.0" />
+                                                                                 </font>
+                                                                              </Label>
+                                                                           </children>
+                                                                        </GridPane>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </content>
+                                                            </ScrollPane>
+                                                            <ToolBar>
+                                                               <items>
+                                                                  <Button mnemonicParsing="false" onAction="#setFinancialsQuarterly" text="Quarterly" textAlignment="CENTER" />
+                                                                  <Button mnemonicParsing="false" onAction="#setFinancialsAnnual" text="Annual" textAlignment="CENTER" />
+                                                               </items>
+                                                            </ToolBar>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                          <TitledPane alignment="CENTER" animated="false" collapsible="false" contentDisplay="CENTER" text="Earnings" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <content>
+                                                <AnchorPane>
+                                                   <children>
+                                                      <LineChart fx:id="earningsGraph" legendVisible="false" title="Acutal EPS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                         <xAxis>
+                                                            <CategoryAxis side="BOTTOM" fx:id="xAxisEarningsGraph" />
+                                                         </xAxis>
+                                                         <yAxis>
+                                                            <NumberAxis fx:id="yAxisEarningsGraph" side="LEFT" />
+                                                         </yAxis>
+                                                      </LineChart>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </TitledPane>
+                                       </children>
+                                    </GridPane>
+                                    <AnchorPane fx:id="transcriptPane" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="News/Info">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <AnchorPane>
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <AnchorPane fx:id="googleNewsPane" />
+                                          <AnchorPane fx:id="seekAlphaPane" />
+                                          <AnchorPane fx:id="wikiAnchorPane" />
+                                          <AnchorPane fx:id="companySitePane" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

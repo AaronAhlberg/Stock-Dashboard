@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <items>
+            <TextField fx:id="searchBar" alignment="CENTER" promptText="search ticker symbol" />
+            <Button mnemonicParsing="false" onAction="#searchSymbol" onMouseClicked="#searchSymbol" text="Search" />
+         </items>
+      </ToolBar>
+   </top>
+   <left>
+      <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane>
+               <children>
+                  <TitledPane alignment="CENTER" animated="false" collapsible="false" contentDisplay="CENTER" text="WatchList" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                      <AnchorPane>
+                           <children>
+                              <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane>
+                                       <children>
+                                          <Button fx:id="watchButton" mnemonicParsing="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane>
+                                       <children>
+                                          <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#stockScreener" text="Stock Screener" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane>
+                                       <children>
+                                          <ListView fx:id="watchingListView" onMouseClicked="#handleMouseClick" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </left>
+   <center>
+      <SplitPane fx:id="splitPane" dividerPositions="0.6" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane>
+               <children>
+                  <TabPane fx:id="searchTabPane" tabClosingPolicy="ALL_TABS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <VBox nodeOrientation="LEFT_TO_RIGHT">
+               <children>
+                  <ToolBar>
+                    <items>
+                      <Button alignment="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#minimize" text="-" />
+                        <Button alignment="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#restore" text="R" />
+                        <Button alignment="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#maximize" text="+" />
+                    </items>
+                  </ToolBar>
+                  <AnchorPane fx:id="tradePane" />
+               </children>
+            </VBox>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>
